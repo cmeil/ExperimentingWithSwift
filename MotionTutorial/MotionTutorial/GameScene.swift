@@ -18,8 +18,17 @@ class GameScene: SKScene {
     var destY:CGFloat = 0.0
     var maxX:CGFloat = 0.0
     var maxY:CGFloat = 0.0
-    
-    
+
+    func reset() {
+        self.destX = self.maxX/2
+        self.destY = self.maxY/2
+
+        let action = SKAction.moveTo(CGPointMake(self.destX,self.destY), duration: 0)
+        self.airplane.runAction(action)
+
+        print("Reset to \(self.maxX), \(self.maxY)")
+    }
+
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
     

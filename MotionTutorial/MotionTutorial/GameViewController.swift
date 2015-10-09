@@ -10,6 +10,13 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    var gameScene: GameScene?
+
+    @IBAction func resetScene(sender: UIButton) {
+        if let scene = self.gameScene {
+            scene.reset()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +34,7 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFill
             
             skView.presentScene(scene)
+            self.gameScene = scene
         }
     }
 
